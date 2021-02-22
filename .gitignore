@@ -33,3 +33,6 @@ basilisk-*.tar
 
 # Ignore mix-fast cache
 .mix_tasks
+
+# don't commit mix home (via direnv)
+.mixhome
