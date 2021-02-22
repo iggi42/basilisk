@@ -2,4 +2,4 @@
              (gnu packages elixir))
 
 (specifications->manifest
- '("bash" "elixir" "git" "nss-certs" "protobuf" "make" ) )
+ '("bash" "elixir" "git" "nss-certs" "protobuf" "make" "shellcheck" ) )
