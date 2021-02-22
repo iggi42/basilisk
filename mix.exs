@@ -35,15 +35,24 @@ defmodule Basilisk.MixProject do
 
   defp aliases do
     [
-      setup: [
-        "cmd ./tasks/setup_hooks.sh",
+      setup_proto: [
         "escript.install github skwerlman/protobuf-elixir branch no_underscores",
-        "cmd ./tasks/setup_protoc.sh",
+        "cmd ./tasks/setup_protoc.sh"
+      ],
+      setup_db: [
+        "ecto.create",
+        "ecto.migrate"
+      ],
+      setup_git: [
+        "cmd ./tasks/setup_hooks.sh"
+      ],
+      setup: [
+        "setup_git",
+        "setup_proto",
         "deps.get",
         "deps.compile",
         "compile",
-        "ecto.create",
-        "ecto.migrate"
+        "setup_db"
       ],
       hipe: ["protoc", "cmd ./tasks/hipe.sh"],
       protoc: "cmd ./tasks/protoc.sh",
