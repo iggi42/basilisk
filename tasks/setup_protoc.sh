@@ -4,7 +4,7 @@ set -e
 MIX_HOME="$(elixir -e 'Mix.Utils.mix_home() |> IO.puts()')"
 
 function which() {
-  which "$1" 1>/dev/null 2>&1
+  which $@ 1>/dev/null 2>&1
   return $?
 }
 
@@ -15,6 +15,8 @@ if which asdf; then
 fi
 
 if  which protoc-gen-elixir; then
+  true
+else
   echo "<<===========----------=============>>" >&2
   echo "WARNING: to complete the setup add '$MIX_HOME/escripts' to your PATH!" >&2
   echo "<<===========----------=============>>" >&2
